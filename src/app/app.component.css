@@ -1,0 +1,27 @@
+.row , .col-sm-12 {margin: 10px;}
+
+input {border-radius: 6px;border-style: groove;line-height: 32px}
+
+h2,h3 {text-align:center; }
+
+label{width: 100px}
+
+h2{margin-bottom: 60px;}
+
+.btn {margin: 2px;min-width: 100%}
+
+.squareInfo {
+  width: 200px;
+    border: 2px solid;
+    height: 65px;
+    font-size: 38px;
+    background: lightseagreen;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title {
+  width: 197px;
+  margin: 0 auto;
+  text-align: center;
+}

@@ -1,3 +1,90 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+
+  <h2>Notas estudiantes</h2>
+
+  <div class="row">
+
+    <div *ngIf="optionNumber !== undefined" class="col-sm-12">
+      <div class="squareInfo"> {{optionNumber}}</div >
+        <div class="title">{{optionTitle}}</div>
+    </div>
+   
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Formulario del estudiante</h3>
+        <div class="row">
+          <div class="col-sm-12" >
+            <label for="">Código</label>
+            <input name="code" [(ngModel)]="code" type="text" placeholder="Inserte el código" required />
+          </div>
+          <div class="col-sm-12" >
+            <label for="">Nombres</label>
+            <input name="fullName" [(ngModel)]="fullName" type="text" placeholder="Inserte el Nombre" required />
+          </div>
+          <div class="col-sm-12" >
+            <label for="">Nota</label>
+            <input name="score" [(ngModel)]="score" type="text" placeholder="Inserte la nota" required />
+
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <button class="btn" (click)="handleSubmit()" type="button">Registrar</button>
+
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-info" (click)="handlePromScore()" type="button">Nota promedio </button>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <button class="btn btn-success" (click)="handleHighestScore()" type="button">Nota Mayor</button>
+
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-primary" (click)="handleLowestScore()" type="button">Nota Menor</button>
+
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+      <h3>Registros</h3>
+
+      <div style="text-align:center; margin-top:20px" class="message" *ngIf="Data.length === 0">No hay registros aún.</div>
+      <div class="dataList" *ngIf="Data.length != 0">
+        <div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h5>Información</h5>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Nombre</th>
+                  <th>Nota</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of Data">
+                  <th scope="row">{{item.code}}</th>
+                  <td>{{item.fullName}}</td>
+                  <td>{{item.score}}</td>
+                  <td><button class="btn btn-danger" (click)="handleRemove(item.id)">Borrar elemento</button></td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
